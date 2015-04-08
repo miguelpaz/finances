@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
     <head>
+        <link rel="stylesheet" type="text/css" href="bootstrap.css">
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="d3/d3.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="underscore.js"></script>
         <script type="text/javascript" src="data.js"></script>
         <script type="text/javascript" src="dod.js"></script>
-        
+        <script type="text/javascript" src="bubble.js"></script>
     </head>
     <body>
         <div class="header">
@@ -43,19 +45,31 @@
             The School of Engineering had a research volume of nearly $269 million in FY2014, and the School of Science nearly $134 million. But the School of Humanities, Arts, and Social Sciences and the School of Architecture and Planning each received less than $1 million; Sloan’s research wing spent about $10 million on its research.
             </p>
 
+            <p class="story">
 
-            <p>
-            Still debugging… more graphs to come
+            We collected the supervisor-by-supervisor data from the schools of Engineering and Science and present them here by school, department, and supervisor. The areas of the following circles correspond to the FY2014 expenditures by the supervisor for those with expenditures over $30 thousand.
+            (Formatting fixes pending)
             </p>
-            <div id="bubble">
-
-            </div>
             
-            
-
+            <div id="b_container">
+                <div class="row">
+                  <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active" id="school">
+                      <input type="radio" name="options"> School
+                    </label>
+                    <label class="btn btn-primary" id="dept">
+                      <input type="radio" name="options"> Department
+                    </label>
+                    <label class="btn btn-primary" id="sup">
+                      <input type="radio" name="options"> Supervisor
+                    </label>
+                  </div>
+                </div>
+                <div id="bubble">
+                </div>
         </div>
     </body>
     <script type="text/javascript" src="mitei.js"></script>
-
+    <script src="bootstrap.js"></script>
 </html>
 

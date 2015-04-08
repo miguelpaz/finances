@@ -1,12 +1,13 @@
 window.onload = function(){
   var width = 800, height = 800;
-  var fill = d3.scale.ordinal().range(['#827d92','#827354','#523536','#72856a','#2a3285','#383435'])
-  var svg = d3.select("#chart").append("svg")
+  var fill = d3.scale.ordinal().range(["#7abb65", "#9a16fe", "#d40745", "#5eb0ff", "#f1970c", "#fc7ce6", "#80645f", "#445de2", "#37bdbd", "#10c60f", "#7d690a", "#f49174", "#825b9b", "#acb20b", "#bb4202", "#327190", "#427553", "#e891b5", "#cd027e", "#b4ac7d", "#ba10bf", "#aaa9be", "#ac4b56", "#c198fb", "#097c0c", "#206ac3", "#06c291", "#d6a250", "#9b5a32", "#9349b9", "#8940e3", "#7bbd23", "#547421", "#aa477d", "#2cc457", "#27b9e4", "#d0a099", "#82b792", "#d7011b", "#726b40", "#a9b254", "#097b3e", "#c19ed4", "#6f6686", "#b4349b", "#ff8d46", "#bc3f34", "#d2a515", "#55706d", "#c52d61", "#ff8795", "#905a73"])
+  var svg = d3.select("#bubble").append("svg")
       .attr("width", width)
       .attr("height", height);
 
   for (var j = 0; j < data.length; j++) {
-    data[j].radius = +data[j].comb / 2;
+    // data[j].radius = +data[j].contrib / 2;
+    data[j].radius = Math.sqrt(data[j]["contrib"])/100;
     data[j].x = Math.random() * width;
     data[j].y = Math.random() * height;
   }
@@ -34,7 +35,7 @@ window.onload = function(){
     .attr("cx", function (d) { return d.x; })
     .attr("cy", function (d) { return d.y; })
     .attr("r", function (d) { return d.radius; })
-    .style("fill", function (d) { return fill(d.make); })
+    .style("fill", function (d) { return fill(d.dept); })
     .on("mouseover", function (d) { showPopover.call(this, d); })
     .on("mouseout", function (d) { removePopovers(); })
 
@@ -96,8 +97,8 @@ window.onload = function(){
       trigger: 'manual',
       html : true,
       content: function() { 
-        return "Make: " + d.make + "<br/>Model: " + d.model + 
-               "<br/>Trans: " + d.trans + "<br/>MPG: " + d.comb; 
+        return "Supervisor: " + d["sup"] + "<br/>FY2014 Exp: $" + d["contrib"] + 
+               "<br/>Department: " + d["dept"] + "<br/>School: " + d["school"]; 
       }
     });
     $(this).popover('show')
@@ -129,4 +130,4 @@ window.onload = function(){
       });
     };
   }
-});
+}
