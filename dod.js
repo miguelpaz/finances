@@ -1,5 +1,5 @@
 //Add CSV
-window.onload = function(){
+test = function(){
 //Set the margins
 var margin = {top: 20, right: 120, bottom: 30, left: 120},
     width = 700 - margin.left - margin.right,
@@ -107,3 +107,4 @@ var svg = d3.select("#dod").append("svg")
 
   });
 }
+test();
