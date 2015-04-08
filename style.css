@@ -1,0 +1,88 @@
+body {
+    font-family: Georgia;
+    overflow-x: hidden;
+}
+
+#main_cont{
+    width: 60%;
+    margin-left: 25%;
+}
+
+iframe{
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.topic{
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: -50px;
+    color: rgb(100, 100, 100);
+}
+
+.byline{
+    text-align: center;
+    font-size: 26px;
+    font-weight: bolder;
+    
+}
+
+.header{
+    width: 105%;
+    height: 500px;
+    margin: -20px;
+    text-align: center;
+    font-size: 76px;
+    font-weight: bolder;
+    text-shadow: 3px 3px #111111;
+    color: white;
+    font-style: italic;
+    padding-top: 50px;
+    background-image: url("mit.jpg");
+    background-color: green;
+    background-size: 105% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 50px;
+}
+
+.bigquote{
+    font-size: 46px;
+    font-weight: bolder;
+    font-style: italic;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.story{
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height:150%;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+/*.bar {
+  fill: steelblue;
+}
+*/
+.x.axis path {
+  display: none;
+}
+
+#dod{
+    font: 10px sans-serif;
+}
+
+#ei{
+    font: 10px sans-serif;
+}
