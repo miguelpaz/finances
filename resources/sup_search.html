@@ -1,0 +1,48 @@
+    <div class="ui-widget">
+        <label for="sup_search">Supervisor Search: </label>
+        <input id="sup_search" size="50">
+    </div>
+    <script>
+        $(function() {
+            $( document ).tooltip();
+        });
+    </script>
+    <div id="sup_search_results" class="search_results_container">
+        <table id="projects" class="search_results">
+            <label class="sup_name" id="sup_name"><br></label>
+            <tr class="header_row">
+                <td title="From among MIT's Science; Engineering; Humanities, Arts
+                and Social Sciences; Sloan; and Architecture and Planning Schools">
+                School
+                </td>
+                <td title="The MIT department or, in some cases, lab of the project">
+                Dept.
+                </td>
+                <td title="The project title">
+                Title
+                </td>
+                <td title="The primary sponsor, or the group 
+                or organiztion from which the funding ultimately originates">
+                Primary Sponsor
+                </td>
+                <td title="A tracking number">
+                Gov. Num
+                </td>
+                <td title="The number of dollars spent on the project in fiscal year 2014">
+                2014 Exp.
+                </td>
+                <td title="The total spending on the project to date over
+                the lifetime of the contract or grant.">
+                Cumulative Spending
+                </td>
+                <td title="The total amount allocated to the project over its lifetime">
+                Authorized Total
+                </td>
+            </tr>
+        </table>
+    <style type="text/css">
+        .ui-tooltip{
+            font-size: 14px;
+        }
+    </style>
+    </div>

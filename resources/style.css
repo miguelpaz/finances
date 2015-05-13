@@ -1,0 +1,163 @@
+body {
+    font-family: Georgia;
+    overflow-x: hidden;
+    padding-top: 50px;
+}
+
+#main_cont{
+    /*width: 60%;*/
+    /*margin-left: 25%;*/
+}
+
+iframe{
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.topic{
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: -50px;
+    color: rgb(100, 100, 100);
+}
+
+.byline{
+    text-align: center;
+    font-size: 26px;
+    font-weight: bolder;
+    margin-left: 1px;
+    
+}
+
+.header{
+    width: 105%;
+    height: 500px;
+    margin: -20px;
+    text-align: center;
+    font-size: 76px;
+    font-weight: bolder;
+    text-shadow: 3px 3px #111111;
+    color: white;
+    font-style: italic;
+    padding-top: 50px;
+    background-image: url("mit.jpg");
+    background-color: green;
+    background-size: 105% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 50px;
+}
+
+.bigquote{
+    font-size: 46px;
+    font-weight: bolder;
+    font-style: italic;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.story{
+    font-family: serif;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    line-height:150%;
+    max-width: 650px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+/*.bar {
+  fill: steelblue;
+}
+*/
+.x.axis path {
+  display: none;
+}
+
+#dod{
+    font: 10px sans-serif;
+}
+
+#ei{
+    font: 10px sans-serif;
+}
+circle {
+stroke: white;
+stroke-width: 2px;
+opacity: .8;
+}
+.label {
+fill: black;
+font-size: 12px;
+color: black;
+}
+
+.search_results_container{
+    width: 900px;
+    max-width: 900px;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+.search_results{
+    min-width: 900px;
+    max-width: 900px;
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+
+.header_row{
+    font-size: 16px;
+    font-weight: 900;
+}
+.header_row:hover{
+    cursor: pointer;
+}
+
+.sup_name{
+    font-size: 18px;
+    margin-bottom: -10px;
+    margin-top: 10px;
+}
+
+table{
+    display: block;
+    overflow:scroll;
+    max-height: 500px;
+}
+
+.search_cont{
+    margin-left: 20px;
+    margin-bottom: 100px;
+/*    max-height: 500px;
+    overflow: scroll;
+*/}
+
+.node {
+    /*border: solid 1px white;*/
+    line-height: 0.95;
+    overflow: hidden;
+    position: absolute;   
+}
+.node:hover{
+    cursor: hover;
+}
+
+.sponsor_tree{
+    /*max-width:600px;*/
+    /*position: relative;*/
+    height: 650px;
+    margin-left: 20px;
+}
+
+.tree_cont

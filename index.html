@@ -1,21 +1,160 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
     <head>
-        <link rel="stylesheet" type="text/css" href="bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <link rel="stylesheet" type="text/css" href="resources/style.css">
+
+        <!-- JQuery includes -->
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script src="d3/d3.min.js" charset="utf-8"></script>
-        <script type="text/javascript" src="underscore.js"></script>
-        <script type="text/javascript" src="data.js"></script>
-        <script type="text/javascript" src="bubble.js"></script>
+
+        <!-- D3 -->
+        <script src="resources/d3/d3.min.js" charset="utf-8"></script>
+
+        <!-- Necessary data includes -->
+        <script type="text/javascript" src="resources/data.js"></script>
+
+        
+        
+        <!-- Bubble-related includes -->
+        <script type="text/javascript" src="resources/underscore.js"></script>
+        <script src="resources/bootstrap.js"></script>
+        <link rel="stylesheet" type="text/css" href="resources/bootstrap.css">
+
+
+        <!-- // <script type="text/javascript" src="resources/bubble.js"></script>  -->
     </head>
     <body>
+
         <div class="header">
-            MIT's Finances
+            MIT Finance Explorer
         </div>
         <div id="main_cont">
 
-            <p class="byline"> By: Gideon Gil, Michael Greshko, and Austin Hess </p>
+            <p class="byline"> By: Miguel Paz, Michael Greshko, and Austin Hess </p>
+            <p class="story">
+            Every year, MIT publishes its “Brown Book,” a summary of the contributions to and expenditures by the entire Institute. We focused on the on-campus research rather than MIT’s external labs, like Lincoln Lab.
+            </p>
+
+            <p class="story">
+            Use the following tool to search project supervisors and see the funding on each project.
+            </p>
+        </div>
+
+        <div id="sup_search_cont" class="search_cont">
+            <div class="ui-widget">
+              <label for="sup_search">Supervisor Search: </label>
+              <input id="sup_search" size="50">
+            </div>
+            <script>
+                $(function() {
+                    $( document ).tooltip();
+                });
+            </script>
+            <div id="sup_search_results" class="search_results_container">
+            <table id="projects" class="search_results">
+                <label class="sup_name" id="sup_name"><br></label>
+                <tr class="header_row">
+                    <td title="From among MIT's Science; Engineering; Humanities, Arts
+                    and Social Sciences; Sloan; and Architecture and Planning Schools">
+                    School
+                    </td>
+                    <td title="The MIT department or, in some cases, lab of the project">
+                    Dept.
+                    </td>
+                    <td title="The project title">
+                    Title
+                    </td>
+                    <td title="The primary sponsor, or the group 
+                    or organiztion from which the funding ultimately originates">
+                    Primary Sponsor
+                    </td>
+                    <td title="A tracking number">
+                    Gov. Num
+                    </td>
+                    <td title="The number of dollars spent on the project in fiscal year 2014">
+                    2014 Exp.
+                    </td>
+                    <td title="The total spending on the project to date over
+                    the lifetime of the contract or grant.">
+                    Cumulative Spending
+                    </td>
+                    <td title="The total amount allocated to the project over its lifetime">
+                    Authorized Total
+                    </td>
+                </tr>
+            </table>
+            <style type="text/css">
+                .ui-tooltip{
+                    font-size: 14px;
+                }
+            </style>
+            </div>
+        </div>
+
+        <p class="story">
+            The following shows contribution size for primary sponsors (i.e. the origin of the money MIT receives) in FY2014. You can click on each box to see the breakdown of grants and contracts below, or you can search by individual sponsor.
+        </p>
+
+        <div id="tree_cont" class="tree_cont">
+        <div id="sponsor_tree" class="sponsor_tree"></div>
+        </div>
+
+        <div id="spo_search_cont" class="search_cont">
+            <div class="ui-widget">
+              <label for="spo_search">Sponsor Search: </label>
+              <input id="spo_search" size="50">
+            </div>
+            <script>
+                $(function() {
+                    $( document ).tooltip();
+                });
+            </script>
+            <div id="spo_search_results" class="search_results_container">
+            <table id="sponsors" class="search_results">
+                <label class="spo_name" id="spo_name"><br></label>
+                <tr class="header_row">
+                    <td title="Whether contract or grant">
+                    Agreement Type
+                    </td>
+                    <td title="Whether the research takes place on MIT campus or at an off-site lab">
+                    On/Off Campus
+                    </td>
+                    <td title="Number of projects sponsored by this primary sponsor">
+                    No. Accts
+                    </td>
+                    <td title="Amount of funding that goes to paying graduate students on the project">
+                    Graduate Students
+                    </td>
+                    <td title="Amount of funding that goes to paying other workers on the project">
+                    Other Salaries
+                    </td>
+                    <td title="Amount of funding that goes to paying employee 
+                    benefits for workers on the project">
+                    Employee Benefits
+                    </td>
+                    <td title="Expenses for research operations">
+                    Operating Expenses
+                    </td>
+                    <td title="Other Expenses">
+                    Indirect Expenses
+                    </td>
+                    <td title="Amount of money spent so far that fiscal year">
+                    FYTD Amount
+                    </td>
+                </tr>
+            </table>
+            <style type="text/css">
+                .ui-tooltip{
+                    font-size: 14px;
+                }
+            </style>
+            </div>
+        </div>
+
+
+
+        <!--
+        
 
             <p class="story">
                 MIT’s finances come are a complex mix of industry and government funding. Some labs and projects rely extremely heavily on millions of dollars per year from government organizations like the NIH and NSF. Others support their research with huge donations from corporate sponsors. Some departments are magnets for outside funding, while others get almost nothing.
@@ -49,27 +188,37 @@
             We collected the supervisor-by-supervisor data from the schools of Engineering and Science and present them here by school, department, and supervisor. The areas of the following circles correspond to the FY2014 expenditures by the supervisor for those with expenditures over $30 thousand.
             (Formatting fixes pending)
             </p>
+            -->
             
-            <div id="b_container">
-                <div class="row">
-                  <div class="btn-group" data-toggle="buttons">
+        <!-- <div id="b_container">
+            <div class="row">
+                <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-primary active" id="school">
-                      <input type="radio" name="options"> School
+                        <input type="radio" name="options"> School
                     </label>
                     <label class="btn btn-primary" id="dept">
-                      <input type="radio" name="options"> Department
+                        <input type="radio" name="options"> Department
                     </label>
-                    <!-- <label class="btn btn-primary" id="sup">
-                      <input type="radio" name="options"> Supervisor
-                    </label> -->
-                  </div>
+                    </div>
                 </div>
-                <div id="bubble">
-                </div>
-        </div>
+            <div id="bubble">
+            </div>
+        </div> -->
     </body>
-    <script type="text/javascript" src="dod.js"></script>
-    <script type="text/javascript" src="mitei.js"></script>
-    <script src="bootstrap.js"></script>
+    <script type="text/javascript" src="resources/spo_data.js"></script>
+    <script type="text/javascript" src="resources/spo_search.js"></script>
+    <script type="text/javascript" src="resources/tree.js"></script>
+
+    <script type="text/javascript" src="resources/full_sup_data.js"></script>
+    <script type="text/javascript" src="resources/sup_search.js"></script>
+
+        
+        
+
+    <script type="text/javascript" src="resources/dod.js"></script>
+    <script type="text/javascript" src="resources/mitei.js"></script>
+    
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </html>
 
