@@ -1,10 +1,10 @@
 window.onload = function(){
-  var width = 800, height = 3200;
+  var width = 800, height = 800;
   var fill = d3.scale.ordinal().range(["#7abb65", "#9a16fe", "#d40745", "#5eb0ff", "#f1970c", "#fc7ce6", "#80645f", "#445de2", "#37bdbd", "#10c60f", "#7d690a", "#f49174", "#825b9b", "#acb20b", "#bb4202", "#327190", "#427553", "#e891b5", "#cd027e", "#b4ac7d", "#ba10bf", "#aaa9be", "#ac4b56", "#c198fb", "#097c0c", "#206ac3", "#06c291", "#d6a250", "#9b5a32", "#9349b9", "#8940e3", "#7bbd23", "#547421", "#aa477d", "#2cc457", "#27b9e4", "#d0a099", "#82b792", "#d7011b", "#726b40", "#a9b254", "#097b3e", "#c19ed4", "#6f6686", "#b4349b", "#ff8d46", "#bc3f34", "#d2a515", "#55706d", "#c52d61", "#ff8795", "#905a73"])
   var svg = d3.select("#bubble").append("svg")
       .attr("width", width)
       .attr("height", height);
-  var data = sup_data;
+  var data = bubble_data;
   for (var j = 0; j < data.length; j++) {
     // data[j].radius = +data[j].contrib / 2;
     data[j].radius = Math.sqrt(data[j]["contrib"])/100;
@@ -15,18 +15,15 @@ window.onload = function(){
   var padding = 2;
   var maxRadius = d3.max(_.pluck(data, 'radius'));
 
-  var getCenters = function (vname) {
+  var getCenters = function (vname, size) {
     var centers, map;
-    // centers = _.uniq(_.pluck(data, vname)).map(function (d) {
-    //   return {name: d, value: 1};
-    // });
+    centers = _.uniq(_.pluck(data, vname)).map(function (d) {
+      return {name: d, value: 1};
+    });
 
-    // map = d3.layout.treemap().size(size).ratio(1/1);
-    // map.nodes({children: centers});
-    // console.log(centers)
-    if (vname == "dept")
+    map = d3.layout.treemap().size(size).ratio(1/1);
+    map.nodes({children: centers});
 
-    centers = []
     return centers;
   };
 
@@ -39,6 +36,7 @@ window.onload = function(){
     .attr("cy", function (d) { return d.y; })
     .attr("r", function (d) { return d.radius; })
     .style("fill", function (d) { return fill(d.dept); })
+    .on("click", function (d) { populate_table(d["sup"]) })
     .on("mouseover", function (d) { showPopover.call(this, d); })
     .on("mouseout", function (d) { removePopovers(); })
 
@@ -50,17 +48,18 @@ window.onload = function(){
     var height = 800;
     if (this.id == "dept"){
       height = 3200;
+      svg.attr("height", 3200);
     }
-    // if (this.id == "school"){
-    //   svg.attr("height", 800);
-    // }
+    if (this.id == "school"){
+      svg.attr("height", 900);
+    }
     if (this.id == "sup"){
-      height = 1000;
+      height = 4800;
     }
-    draw(this.id);
+    draw(this.id, height);
   });
 
-  function draw (varname) {
+  function draw (varname, height) {
     var centers = getCenters(varname, [800, height]);
     force.on("tick", tick(centers, varname));
     labels(centers)
@@ -86,6 +85,7 @@ window.onload = function(){
   }
 
   function labels (centers) {
+    console.log(centers)
     svg.selectAll(".label").remove();
 
     svg.selectAll(".label")

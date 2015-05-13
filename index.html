@@ -35,9 +35,23 @@
             </p>
 
             <p class="story">
-            Use the following tool to search project supervisors and see the funding on each project.
+            In the following tool, you can see the distribution across school and department of supervisors who oversee over $500,000, but you can also search from all project supervisors and see project-by-project details.
             </p>
-        
+
+        <div id="b_container">
+            <div class="row">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active" id="school">
+                        <input type="radio" name="options"> School
+                    </label>
+                    <label class="btn btn-primary" id="dept">
+                        <input type="radio" name="options"> Department
+                    </label>
+                    </div>
+                </div>
+            <div id="bubble">
+            </div>
+        </div>
 
         <div id="sup_search_cont" class="search_cont">
             <div class="ui-widget">
@@ -188,21 +202,6 @@
             (Formatting fixes pending)
             </p>
             -->
-            
-        <!-- <div id="b_container">
-            <div class="row">
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-primary active" id="school">
-                        <input type="radio" name="options"> School
-                    </label>
-                    <label class="btn btn-primary" id="dept">
-                        <input type="radio" name="options"> Department
-                    </label>
-                    </div>
-                </div>
-            <div id="bubble">
-            </div>
-        </div> -->
 
         </div> 
     </body>
@@ -221,5 +220,7 @@
     
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <script type="text/javascript" src="resources/bubble.js"></script>
 </html>
 

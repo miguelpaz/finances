@@ -170,23 +170,25 @@ for k in config.keys():
     LEN = config[p_key][0]
     f = pd.read_csv("raw_data/"+ p_key+".csv", names=range(LEN), engine="python")
     all_supervisors = collect_data()
-    total_data.extend(summarize_data(all_supervisors))
-    # total_data.extend(summarize_data(all_supervisors, full_list=False))
+    # total_data.extend(summarize_data(all_supervisors))
+    total_data.extend(summarize_data(all_supervisors, full_list=False))
 
 # print total_data
 
-sup_d = {}
-for s in total_data:
-    sup = ' '.join(s['sup'].lstrip().rstrip().split())
-    if sup not in sup_d:
-        sup_d[sup] = [s]
-    else:
-        sup_d[sup].append(s)
+# sup_d = {}
+# for s in total_data:
+#     sup = ' '.join(s['sup'].lstrip().rstrip().split())
+#     if sup not in sup_d:
+#         sup_d[sup] = [s]
+#     else:
+#         sup_d[sup].append(s)
 
-sup_names = sup_d.keys()
+# sup_names = sup_d.keys()
 
-print sup_names
+# print sup_names
 
-# print total_data
-with open('full_sup_data.json', 'wb') as f:
-    f.write(json.dumps(sup_d))
+with open('sup_data.json', 'wb') as f:
+    f.write(json.dumps(total_data))
+print total_data
+# with open('full_sup_data.json', 'wb') as f:
+#     f.write(json.dumps(sup_d))

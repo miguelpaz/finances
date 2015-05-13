@@ -22,7 +22,7 @@ var node = div.datum(spo_tree).selectAll(".node")
       .append('div')
       .style("font-size", function(d) {
           // compute font size based on sqrt(area)
-          console.log(d.area)
+          // console.log(d.area)
           a = Math.max(8, 0.08*Math.sqrt(d.area))+'px';
           if (d.area <990){
             a=0;
@@ -51,7 +51,7 @@ function position_this() {
       trigger: 'manual',
       html : true,
       content: function() { 
-        console.log(d)
+        // console.log(d)
         return "Sponsor: " + d["name"] + "<br/>FY2014 Exp: $" + commas(d["size"]); 
       }
     });
